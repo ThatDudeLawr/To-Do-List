@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Client {
 
+    //Function used to send a query containing the Client input Title
     private static void SendTitleQuery(BufferedReader br, PrintWriter pw, Scanner sc) throws IOException
     {
         boolean serverResponse;
@@ -35,12 +36,15 @@ public class Client {
         String taskListSize;
 
         do{
+            //Main Menu of the application
+            //It waits for the client option in order to execute a specific operation
             taskListSize = br.readLine();
             System.out.println("Operation Type (Create=1/MarkAsDone=2/Delete=3/MyTasks=4/Quit=5):");
             input = sc.nextLine();
             input = input.toLowerCase();
             pw.println(input);
             pw.flush();
+
             if(input.compareTo("create")==0 || input.compareTo("1")==0)
             {
                 System.out.println("Enter task title:");

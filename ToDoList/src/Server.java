@@ -27,9 +27,12 @@ public class Server
         String input="";
 
        do {
+           //Waits for the Client to request an operation
            pw.println(TaskList.size());
            pw.flush();
            input = br.readLine();
+
+           //Starts checking for the Client operation input
            if (input.compareTo("create") == 0 || input.compareTo("1") == 0)
            {
                Task task = new Task();
@@ -93,8 +96,11 @@ public class Server
            }
            else if (input.compareTo("mytasks") == 0 || input.compareTo("4") == 0)
            {
+               //Sends total amount of tasks to the Client
                pw.printf("\nTotal tasks: " + TaskList.size() + "\n\n");
                pw.flush();
+
+               //Sends each task from the TaskList to the Client
                for(int i=0;i<TaskList.size();i++)
                {
                    pw.printf("%-20s Due Date: %s   %-20s  Is Completed: %s\n",
@@ -105,8 +111,8 @@ public class Server
                pw.flush();
            }
 
+           //Debug for the server in order to see the total number of tasks and the list of tasks after executing an operation
            System.out.println("Total tasks: " + TaskList.size() + "\n");
-
            for(int i=0; i<TaskList.size(); i++)
            {
                System.out.printf("%-20s Due Date: %s   %-20s  Is Completed: %s \n",
